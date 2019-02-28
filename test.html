@@ -3,29 +3,48 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Rock Paper Scissors Part 7</title>
+  <title>Psychic-game</title>
 </head>
 
 <body>
 
-<p>test</p>
+<p>The Psychic Game</p>
+<p id="comchoice-text"></p>
+<p id="userchoice-text"></p>
+<p id="wins-text"></p>
+<p id="losses-text"></p>
 <script>
 
     alert("You Have 100 guesses. Guess letter");
+    
 
     var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-    var guess = prompt("Whats your guess?");
+    var wins = 0;
+    var losses = 0;
+    
+    var comChoiceText = document.getElementById("comchoice-text");
+    var userChoiceText = document.getElementById("userchoice-text");
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+
+    document.onkeyup = function(event) {
+
+    var guess = event.key;    
 
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
-    for (i = 0; i < 100; i++) {
-        if (computerGuess === guess) {
-            alert("You Answered Correctly");
-            break;
-        }else{
-            guess = prompt("Try again")
-        }
+   
+    if (computerGuess === guess) {
+     wins++;
+    }else { 
+        lossess++;
     }
+        comChoiceText.textContent = "The computer chose: " + computerGuess;
+        winsText.textContent = "wins: " + wins;
+        lossesText.textContent = "losses: " + losses;
+        userChoiceText.textContent = "You chose: " + guess;
+    }
+    
 
 </script>
 
