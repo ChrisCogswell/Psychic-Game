@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 7</title>
+</head>
+
+<body>
+
+<p>test</p>
+<script>
+
+    alert("You Have 100 guesses. Guess letter");
+
+    var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    var guess = prompt("Whats your guess?");
+
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+    for (i = 0; i < 100; i++) {
+        if (computerGuess === guess) {
+            alert("You Answered Correctly");
+            break;
+        }else{
+            guess = prompt("Try again")
+        }
+    }
+
+</script>
+
+
+</body>
+
+</html>
