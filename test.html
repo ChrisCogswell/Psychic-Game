@@ -8,24 +8,28 @@
 
 <body>
 
-<p>The Psychic Game</p>
+<h1>The Psychic Game</h1>
+<h3>Type any letter to begin</h3>
 <p id="comchoice-text"></p>
-<p id="userchoice-text"></p>
 <p id="wins-text"></p>
 <p id="losses-text"></p>
+<p id="guesses-left"></p>
+<p id="guessSoFar-text"></p>
 <script>
 
-    alert("You Have 100 guesses. Guess letter");
+
     
 
     var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
     var wins = 0;
     var losses = 0;
+    var guessesLeft = 9;
     
     var comChoiceText = document.getElementById("comchoice-text");
-    var userChoiceText = document.getElementById("userchoice-text");
+    var userGuessText = document.getElementById("guessSoFar-text");
     var winsText = document.getElementById("wins-text");
     var lossesText = document.getElementById("losses-text");
+    var guessesText = document.getElementById("guesses-left");
 
     document.onkeyup = function(event) {
 
@@ -34,15 +38,25 @@
     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
    
-    if (computerGuess === guess) {
-     wins++;
-    }else { 
-        lossess++;
-    }
+ 
+        if (computerGuess === guess){
+            wins++;
+        }else {
+            guessesLeft--;
+        }
+
+        if (guessesLeft === 0){
+            losses++;
+        }
+       
+   
+
+
         comChoiceText.textContent = "The computer chose: " + computerGuess;
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
-        userChoiceText.textContent = "You chose: " + guess;
+        userGuessText.textContent = "Guesses so far: " + guess;
+        guessesText.textContent = "Guesses left: " + guessesLeft;
     }
     
 
