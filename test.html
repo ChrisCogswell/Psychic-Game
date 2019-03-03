@@ -41,12 +41,14 @@
  
         if (computerGuess === guess){
             wins++;
+            guessesLeft = 9;
         }else {
             guessesLeft--;
         }
 
         if (guessesLeft === 0){
             losses++;
+            guessesLeft = 9;
         }
        
    
