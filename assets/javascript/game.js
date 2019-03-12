@@ -14,11 +14,12 @@
     
     // This function describes the game loop parameters
 
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
     document.onkeyup = function(event) {
 
     var guess = event.key;    
 
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
    
  
@@ -26,6 +27,7 @@
             wins++;
             guessesLeft = 9;
             starterText.textContent = "You Won";
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         }else {
             guessesLeft--;
             starterText.textContent = "Try Again";
@@ -35,6 +37,7 @@
             losses++;
             guessesLeft = 9;
             starterText.textContent = "You Lost";
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         }
        
 
@@ -45,4 +48,4 @@
         userGuessText.textContent = "Guesses so far: " + guess;
         guessesText.textContent = "Guesses left: " + guessesLeft;
     }
-    
+
