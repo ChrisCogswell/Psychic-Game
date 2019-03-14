@@ -36,7 +36,7 @@
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
         }else {
             guessesLeft--;
-            starterText.textContent = "~~~~~~~~~~~~~~~~~~~~~~~~";
+            starterText.textContent = "?~~~~~~~~~~~~?~~~~~~~~~~~~?";
             lettersGuessed.push(guess);
         }
 
